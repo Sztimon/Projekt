@@ -1,0 +1,68 @@
+
+
+<a style="cursor: pointer" (click)="openModal(template)" class="list-group-item clearfix" style="margin-top:10px;">
+    <div class="row">
+        <div class="col-sm-3">
+            <img src="{{vehicle.image}}" alt="vehicle.name" class="img-responsive" style="width: 250px;" />
+        </div>
+        
+        
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="pull-right" *ngIf="showHotIcon()">
+                    <img src="https://cdn1.iconfinder.com/data/icons/nature-life-in-color/128/fire-color2-256.png" alt="hot" class="img-responsive" style="max-height: 30px;" />
+                </div>
+                <div class="pull-left">
+                    <h3>{{vehicle.name}}</h3>
+                </div>
+
+            </div>
+            <div class="row" style="min-height: 100px;">
+                {{vehicle.description}}
+            </div>
+            <div class="row">
+                <div class="pull-right">
+                    Wyswietlen: {{vehicle.counter}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <span>
+         <h4 class="list-group-item-heading" style="padding-left: 270px;">{{vehicle.name}}</h4>
+         <p class="list-group-item-text"  style="padding-left: 270px; padding-top:10px;">{{vehicle.description}}</p>
+     </span>-->
+</a>
+<ng-template #template >
+        <div class="modal-header">
+            <h3 class="modal-title pull-left">{{vehicle.name}}</h3>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img src="{{vehicle.image}}" alt="vehicle.name" style="max-height: 150px;" />
+                </div>
+                <div class="col-sm-8">
+                    <div class="row " style="min-height: 125px;">
+                        {{vehicle.description}}
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 pull-right">
+                            Dodano: {{vehicle.lastUpdate}}
+                        </div>
+                        <div class="col-sm-4 pull-right">
+                            Wyswietlen: {{vehicle.counter}}
+                        </div>
+                        <div class="col-sm-4 pull-right">
+                            <button class="btn-danger" (click)="deleteVehicle()">Usun</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    
+</ng-template>

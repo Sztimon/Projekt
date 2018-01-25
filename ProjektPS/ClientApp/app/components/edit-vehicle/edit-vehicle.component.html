@@ -1,0 +1,74 @@
+<h1>Edit Vehicle</h1>
+
+{{vehicleToChange}}
+
+<div class="form-group">
+    <label for="make">Choose vehicle to edit:</label>
+    <select id="make" class="form-control" (change)="onMakeChange()" [(ngModel)]="vehicleToChange" name="vehicleToChange">
+        <option value=""></option>
+        <option *ngFor="let v of vehicles" value="{{ v.id }}"> {{ v.name }} </option>
+    </select>
+</div>
+
+
+<form (ngSubmit)="submit()">
+    <div class="form-group">
+        <label for="make">Make</label>
+        <select id="make" class="form-control" (change)="onMakeChange()" [(ngModel)]="vehicle.makeId" name="makeId">
+            <option value=""></option>
+            <option *ngFor="let m of makes" value="{{ m.id }}"> {{ m.name }} </option>
+        </select>
+    </div>
+
+    <div class="from=group">
+        <label for="model">Model</label>
+        <select id="model" class="form-control" [(ngModel)]="vehicle.carModelId" name="carModelId">
+            <option value=""></option>
+            <option *ngFor="let m of carModels" value="{{ m.id }}"> {{ m.name }} </option>
+        </select>
+    </div>
+
+    <p style="margin-top:20px">Is this vehicle registered?</p>
+
+    <label for="registered" class="radio-inline">
+        <input type="radio" id="registered" value="true" [(ngModel)]="vehicle.isRegistered" name="isRegistered"> Yes
+    </label>
+    <label for="notRegistered" class="radio-inline">
+        <input type="radio" id="notRegistered" value="false" [(ngModel)]="vehicle.isRegistered" name="isRegistered"> No
+    </label>
+
+    <h3>Features</h3>
+    <div *ngFor="let f of features" class="checkbox" (change)="onFeatureToggle(f.id, $event)">
+        <label for="feature{{ f.id }}">
+            <input type="checkbox" id="feature{{ f.id }}">{{ f.name }}
+        </label>
+    </div>
+
+    <h3>Description</h3>
+    <div class="from-group" style="margin-top:10px">
+        <textarea id="description" type="text" class="form-control" [(ngModel)]="vehicle.description" name="description"></textarea>
+    </div>
+
+    <h3>Image URL:</h3>
+    <div class="from-group" style="margin-top:10px">
+        <input id="image" type="text" class="form-control" [(ngModel)]="vehicle.image" name="image">
+    </div>
+
+    <h3>Contact</h3>
+    <div class="from-group" style="margin-top:10px">
+        <label for="contactName">Name:</label>
+        <input id="contactName" type="text" class="form-control" [(ngModel)]="vehicle.contact.name" name="contactName">
+    </div>
+    <div class="from-group" style="margin-top:10px">
+        <label for="contactPhone">Phone:</label>
+        <input id="contactPhone" type="text" class="form-control" [(ngModel)]="vehicle.contact.phone" name="contactPhone">
+    </div>
+    <div class="from-group" style="margin-top:10px">
+        <label for="contactEmail">Email:</label>
+        <input id="contactEmail" type="text" class="form-control" [(ngModel)]="vehicle.contact.email" name="contactEmail">
+    </div>
+    <button class="btn btn-primary" style="margin-top:20px">Save</button>
+</form>
+<div style="margin-top:20px; margin-bottom:50px; max-width: 500px;">
+    <p style="word-wrap:break-word;">{{ vehicle | json }}</p>
+</div>

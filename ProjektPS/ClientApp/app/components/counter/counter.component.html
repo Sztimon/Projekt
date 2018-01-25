@@ -1,0 +1,68 @@
+
+<div class="counter">
+    <button (click)="showBarChart()" class="btn btn-primary">Show products chart</button>
+    <button (click)="showCircleChart()" class="btn btn-primary">Show locations of users</button>
+    <div style="display: block" *ngIf="isBarChart">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+    </div>
+
+    <div style="display: block" *ngIf="!isBarChart">
+        <canvas baseChart
+                [data]="doughnatChartData"
+                [labels]="doughnutChartLabels"
+                [options]="doughnutChartOptions"
+                [chartType]="doughnutChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+    </div>
+    <div class="row" *ngIf="isBarChart">
+        <div class="col-sm-4">
+            <div class="pull-left">
+                <p>Warto zwiekszyc cene za: </p>
+                <ul>
+                    <li *ngFor="let name of vehiclesToDisplay">
+                        {{name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="pull-left">
+                <p>Rozwaz promocje na:</p>
+                <ul>
+                    <li *ngFor="let name of vehicleOnPromo">
+                        {{name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="!isBarChart">
+        <div class="col-sm-4">
+            <div class="pull-left">
+                <p>Klienci loguja sie najczesciej z: </p>
+                <ul>
+                    <li >
+                        {{cityMostViewed}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="pull-left">
+                <p>Najmniej klienow jest z: </p>
+                <ul>
+                    <li>
+                        {{cityNotViewed}}
+                    </li>
+                        </ul>
+            </div>
+        </div>
+    </div>
+</div>

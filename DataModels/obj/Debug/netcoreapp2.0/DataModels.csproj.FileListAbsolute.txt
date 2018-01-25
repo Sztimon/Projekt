@@ -1,0 +1,9 @@
+C:\Reposytoria\PS\ProjektPS\DataModels\bin\Debug\netcoreapp2.0\DataModels.deps.json
+C:\Reposytoria\PS\ProjektPS\DataModels\bin\Debug\netcoreapp2.0\DataModels.dll
+C:\Reposytoria\PS\ProjektPS\DataModels\bin\Debug\netcoreapp2.0\DataModels.pdb
+C:\Reposytoria\PS\ProjektPS\DataModels\obj\Debug\netcoreapp2.0\DataModels.csprojResolveAssemblyReference.cache
+C:\Reposytoria\PS\ProjektPS\DataModels\obj\Debug\netcoreapp2.0\DataModels.csproj.CoreCompileInputs.cache
+C:\Reposytoria\PS\ProjektPS\DataModels\obj\Debug\netcoreapp2.0\DataModels.AssemblyInfoInputs.cache
+C:\Reposytoria\PS\ProjektPS\DataModels\obj\Debug\netcoreapp2.0\DataModels.AssemblyInfo.cs
+C:\Reposytoria\PS\ProjektPS\DataModels\obj\Debug\netcoreapp2.0\DataModels.dll
+C:\Reposytoria\PS\ProjektPS\DataModels\obj\Debug\netcoreapp2.0\DataModels.pdb
